@@ -1,15 +1,14 @@
-﻿    <#
+<#
         .DESCRIPTION
-        Back and Restore MineCraft Worlds
+        2020-04-18 | KleinVuur | Initial Version | Back and Restore MineCraft Worlds
 
         .LINK
-        Online version: http://www.fabrikam.com/extension.html
-
-        .LINK
-    #>
+        Online version: https://github.com/CloudSpecs/MineCraftWorldsBackupAndRestore
+        
+#>
 
 Add-Type -assembly "system.io.compression.filesystem"
-Add-Type -AssemblyName System.Windows.Forms 
+Add-Type -AssemblyName System.Windows.Forms
 $sw = (Get-WmiObject -Class Win32_DesktopMonitor).ScreenWidth[1]
 $sh = (Get-WmiObject -Class Win32_DesktopMonitor).ScreenHeight[1]
 $backupfolder = ([IO.Path]::Combine(([Environment]::GetFolderPath("MyDocuments")), 'MinecraftWorld-Backups', 'minecraftWorlds'))
@@ -47,7 +46,7 @@ $Menu = [ordered]@{
         $Label = New-Object System.Windows.Forms.Label
         $Form.Controls.Add($Label)
         $Label.Text = "Do not close this screen untill all is done...
-        Busy exporting all of your Worlds to: 
+        Busy exporting all of your Worlds to:
         $backupfolder"
         $Label.Font = "Microsoft Sans Serif,18,style=Bold"
         $Label.ForeColor = "Green"
@@ -78,7 +77,7 @@ $Menu = [ordered]@{
             $Label = New-Object System.Windows.Forms.Label
             $Form.Controls.Add($Label)
             $Label.Text = "Do not close this screen untill all is done...
-            Importing all of your Worlds to: 
+            Importing all of your Worlds to:
             $defaultMineCraftdir"
             $Label.Font = "Microsoft Sans Serif,18,style=Bold"
             $Label.ForeColor = "Green"
@@ -100,6 +99,6 @@ $Menu = [ordered]@{
         }
 
             $Form.Close()
-  }   
+  }
 
-} 
+}
